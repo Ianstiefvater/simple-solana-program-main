@@ -7,10 +7,6 @@ to the Solana blockchain and a `client/` program which handles
 collecting funds, creating accounts, and invoking the deployed
 program.
 
-Details about how the deployed program works can be found
-[here](https://github.com/solana-labs/example-helloworld#learn-about-the-on-chain-program). The
-actually interesting part of this repository is the client which I'll
-discuss below.
 
 ## The client program
 
@@ -68,15 +64,6 @@ On Solana the cost of storing data on the blockchain is zero if that
 data is inside an account with a balance greater than the cost of two
 years of rent. You can read more about that
 [here](https://docs.solana.com/implemented-proposals/rent).
-
-It appears as if the standard is to load two years of rent into
-accounts so that is what we do. Source: the "programs and accounts"
-section of
-[this](https://2501babe.github.io/posts/solana101.html#programs%20and%20accounts)
-writeup. We can determine what this "two years of rent" amount is by
-running `connection.get_minimum_balance_for_rent_exemption(data_size)`
-where `data_size` is the amount of data that we will be storing in
-bytes.
 
 ### Determining the payer and their balance
 
